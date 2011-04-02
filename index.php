@@ -2,10 +2,17 @@
 
 	include("class.Member.php");
 
-	$database = new Member(1);
-	print $database->id;
-	print $database->getName();
-	print $database->setName('hans');
-	print $database->getName();
+	$mysqli = new mysqli(
+							'localhost',
+							'sprain',
+							'sprain',
+							'sprain'
+						);
+
+	$member = new Member(1, $mysqli);
+//	print $member->id;
+	print $member->getName();
+//	print $member->setName('hans');
+//	print $member->getName();
 	
 ?>
