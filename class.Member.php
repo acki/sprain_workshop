@@ -20,7 +20,7 @@
 			$stmt = $this->mysqli->prepare($query);
 			$stmt->bind_param('i', $this->id);
 			$stmt->execute();
-			$resultat = Database::getResults($stmt);
+			$resultat = $this->mysqli->getResults($stmt);
 			print $resultat[0]['name'];
 		}
 		

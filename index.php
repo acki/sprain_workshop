@@ -4,7 +4,7 @@ function __autoload($class) {
 	include("class.".$class.".php");
 }
 
-	$mysqli = new mysqli(
+	$mysqli = new Database(
 							'localhost',
 							'sprain',
 							'sprain',

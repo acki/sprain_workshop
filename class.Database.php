@@ -1,6 +1,6 @@
 <?
 
-	class Database {
+	class Database extends mysqli {
 	
 /*		function __construct() {
 			$this->database = new mysqli('localhost','sprain','sprain','sprain');
