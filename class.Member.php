@@ -1,6 +1,6 @@
 <?
 
-	class Member{
+	class Member {
 	
 		public 		$id;
 		protected 	$mysqli;
@@ -20,24 +20,10 @@
 			$stmt = $this->mysqli->prepare($query);
 			$stmt->bind_param('i', $this->id);
 			$stmt->execute();
-			$resultat = $this->getResults($stmt);
+			$resultat = Database::getResults($stmt);
 			print $resultat[0]['name'];
 		}
 		
-		protected function getResults($stmt) {
-			$meta = $stmt->result_metadata();
-			while ($field = $meta->fetch_field()) {
-				$params[] = &$row[$field->name];
-			}
-			
-			call_user_func_array(array($stmt, 'bind_result'), $params);
-			
-			$allRows = array();
-			while ($stmt->fetch())
-				$allRows[] = $row;
-				
-			return $allRows;
-		}
 		
 	}
 	

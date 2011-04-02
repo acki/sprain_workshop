@@ -1,6 +1,8 @@
 <?
 
-	include("class.Member.php");
+function __autoload($class) {
+	include("class.".$class.".php");
+}
 
 	$mysqli = new mysqli(
 							'localhost',

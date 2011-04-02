@@ -2,18 +2,25 @@
 
 	class Database {
 	
-		function __construct() {
+/*		function __construct() {
 			$this->database = new mysqli('localhost','sprain','sprain','sprain');
 		}
-		
-		function query($query) {
-			$this->stmt = $this->database->prepare($query);
-			$this->stmt->execute();
-			$this->meta = $this->stmt->result_metadata();
-			while ($field = $this->meta->fetch_field())
+*/		
+		public static function getResults($stmt) {
+			$meta = $stmt->result_metadata();
+			while ($field = $meta->fetch_field()) {
 				$params[] = &$row[$field->name];
-			call_user_func_array($array($this->stmt, "bind_result"), $params);
+			}
+			
+			call_user_func_array(array($stmt, 'bind_result'), $params);
+			
+			$allRows = array();
+			while ($stmt->fetch())
+				$allRows[] = $row;
+				
+			return $allRows;
 		}
+
 		
 	} //class
 	
