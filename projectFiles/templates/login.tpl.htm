@@ -1,0 +1,15 @@
+{% extends "main.tpl.htm" %}
+
+{% block title %}
+	Cookietest
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{ server.PHP_SELF }}">
+	User: <input type="text" name="username" /><br />
+	Pass: <input type="text" name="password" /><br />
+	<input type="submit" value="Abschicken" />
+	<input type="hidden" name="action" value="loginForm" />
+</form>
+<h1 style="font-size: 180px;">{{ loginMessage }}</h1>
+{% endblock %}

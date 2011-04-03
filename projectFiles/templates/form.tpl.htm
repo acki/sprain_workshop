@@ -1,0 +1,13 @@
+{% extends "main.tpl.htm" %}
+
+{% block title %}
+	Cookietest
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{ server.PHP_SELF }}">
+	<input type="text" name="vorname" />
+	<input type="submit" value="Abschicken" />
+	<input type="hidden" name="action" value="cookieForm" />
+</form>
+{% endblock %}

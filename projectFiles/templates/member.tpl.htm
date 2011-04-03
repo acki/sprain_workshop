@@ -1,0 +1,16 @@
+{% extends "main.tpl.htm" %}
+
+{% block content %}
+<h1>Hallo {{ Member.getName }}!</h1>
+<h2>Deine Fotos</h2>
+<ul>
+	{% for foto in fotos %}
+	<li>{{ foto }}</li>
+	{% endfor %}
+</ul>
+
+{% include "foto.tpl.htm" %}
+
+<h2>Deine Adresse </h2>
+{{ server.REMOTE_ADDR }}
+{% endblock %}
